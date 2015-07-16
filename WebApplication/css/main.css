@@ -1,0 +1,31 @@
+body {
+    background-color: #fdecba;
+}
+
+.header {
+    background-color: #decba9;
+    color: #123456;
+}
+
+.footer {
+    background-color: #ecba98;
+    color: #234567;
+}
+
+.content .container {
+    background-color: #cba987;
+    color: #345678;
+}
+
+.content .container a {
+    background-color: transparent;
+    color: #618ebb; /* lighten by 33% */
+}
+
+.content .container a:hover,
+.content .container a:focus {
+    background-color: #dbc4ac; /* lighten by 33% */
+    color: #233a52; /* darken by 33% */
+    text-decoration: none;
+}
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

@@ -1,0 +1,48 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="shortcut icon" href='@Url.Content("~/images/favicon.ico")'> -->
+    <title>@Umbraco.Field("pageTitle", altFieldAlias: "pageName", encoding: RenderFieldEncodingType.Html)</title>
+    <link rel="stylesheet" href='@Url.Content("~/css/bootstrap.min.css")'>
+    <link rel="stylesheet" href='@Url.Content("~/css/font-awesome.min.css")'>
+    <link rel="stylesheet" href='@Url.Content("~/css/footer.css")'>
+    <link rel="stylesheet" href='@Url.Content("~/css/menu.css")'>
+    <link rel="stylesheet" href='@Url.Content("~/css/main.css")'>
+    @RenderSection("style", false)
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>@Umbraco.Field("pageName")</h1>
+            @Umbraco.RenderMacro("Navigation")
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+			@Umbraco.Field("footerText", recursive: true)
+        </div>
+    </div>
+    <script src='@Url.Content("~/scripts/jquery-1.11.3.min.js")'></script>
+    <script src='@Url.Content("~/scripts/bootstrap.min.js")'></script>
+    <script src='@Url.Content("~/scripts/ie10-viewport-bug-workaround.js")'></script>
+    <script src='@Url.Content("~/scripts/menu.js")'></script>
+    <script src='@Url.Content("~/scripts/common.js")'></script>
+    @RenderSection("javascript", false)
+</body>
+</html>

@@ -1,0 +1,48 @@
+body {
+    background-color: #cba987;
+    color: #345678;
+}
+
+a {
+    background-color: transparent;
+    color: #618ebb; /* lighten by 33% */
+}
+
+a:hover,
+a:focus {
+    background-color: #dbc4ac; /* lighten by 33% */
+    color: #233a52; /* darken by 33% */
+    text-decoration: none;
+}
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
+h1 {
+font-size: 36px; font-weight: 500; line-height: 1.1; 
+}
+
+h2 {
+font-size: 30px; font-weight: 500; line-height: 1.1; 
+}
+
+h3 {
+font-size: 24px; font-weight: 500; line-height: 1.1; 
+}
+
+h4 {
+font-size: 18px; font-weight: 500; line-height: 1.1; 
+}
+
+h5 {
+font-size: 14px; font-weight: 500; line-height: 1.1; 
+}
+
+h6 {
+font-size: 12px; font-weight: 500; line-height: 1.1; 
+}
+
+div.pull-right {
+float: right !important; 
+}
+
+div.pull-left {
+float: left !important; 
+}
