@@ -1,6 +1,8 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
 @{
     Layout = null;
+    int logoImageId = CurrentPage._logo;
+    int faviconImageId = CurrentPage._favicon;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -8,8 +10,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="shortcut icon" href='@Url.Content("~/images/favicon.ico")'> -->
-    <title>@Umbraco.Field("pageTitle", altFieldAlias: "pageName", encoding: RenderFieldEncodingType.Html)</title>
+    @if (faviconImageId != null && faviconImageId != 0) {
+        <link rel="shortcut icon" href="@Umbraco.Media(faviconImageId).umbracoFile">
+    }
+    <title>@Umbraco.Field("pageTitle", altFieldAlias: "pageName", recursive: true, encoding: RenderFieldEncodingType.Html)</title>
     <link rel="stylesheet" href='@Url.Content("~/css/bootstrap.min.css")'>
     <link rel="stylesheet" href='@Url.Content("~/css/font-awesome.min.css")'>
     <link rel="stylesheet" href='@Url.Content("~/css/footer.css")'>
@@ -24,7 +28,11 @@
 <body>
     <div class="header">
         <div class="container">
-            <h1>@Umbraco.Field("pageName")</h1>
+			@if (logoImageId != null && logoImageId != 0) {
+                <img class="img-responsive pull-left" src="@Umbraco.Media(logoImageId).umbracoFile">
+            }
+			<h1>@Umbraco.Field("pageTitle", altFieldAlias: "pageName", recursive: true, encoding: RenderFieldEncodingType.Html)</h1>
+            <div class="clearfix"></div>
             @Umbraco.RenderMacro("Navigation")
         </div>
     </div>
