@@ -29,7 +29,7 @@
     <div class="header">
         <div class="container">
 			@if (logoImageId != null && logoImageId != 0) {
-                <img class="img-responsive pull-left" src="@Umbraco.Media(logoImageId).umbracoFile">
+                <img class="img-responsive pull-left" src="@Umbraco.Media(logoImageId).umbracoFile" alt="Logo">
             }
 			<h1>@Umbraco.Field("pageTitle", altFieldAlias: "pageName", recursive: true, encoding: RenderFieldEncodingType.Html)</h1>
             <div class="clearfix"></div>

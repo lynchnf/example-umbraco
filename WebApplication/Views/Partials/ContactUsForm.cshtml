@@ -1,0 +1,51 @@
+﻿@model WebApplication.Models.ContactUsModel
+
+@if (TempData["contactUsSuccess"] == null) {
+    using (Html.BeginUmbracoForm<WebApplication.Controllers.ContactUsSurfaceController>("HandleFormSubmit", null, new { @class = "form-horizontal" })) {
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.ReplyToEmail, htmlAttributes: new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-9">
+            @Html.TextBoxFor(m => m.ReplyToEmail, new { @class = "form-control", placeholder = "jsmith@example.com" })
+            @Html.ValidationMessageFor(m => m.ReplyToEmail, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ToDepartmentId, htmlAttributes: new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-9">
+            @Html.DropDownListFor(m => m.ToDepartmentId, new SelectList(
+                new List<object> {
+                    new { value = -1 , text = "Select department"  },
+                    new { value = 1 , text = "Department One" },
+                    new { value = 2 , text = "Department Two" },
+                    new { value = 3 , text = "Department Three"}
+                },
+                "value",
+                "text"),
+                new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ToDepartmentId, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Subject, htmlAttributes: new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-9">
+            @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", placeholder = "Message subject here" })
+            @Html.ValidationMessageFor(m => m.Subject, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Message, htmlAttributes: new { @class = "col-sm-3 control-label" })
+        <div class="col-sm-9">
+            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", placeholder = "Your message here" })
+            @Html.ValidationMessageFor(m => m.Message, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    }
+} else {
+    <div class="text-success">@Html.Raw(TempData["contactUsSuccess"])</div>
+}

@@ -20,11 +20,11 @@
                     var carouselImage = Umbraco.Media(carouselImageIds[i]);
                     if (i == 0) {
                         <div class="item active">
-                            <img class="center-block" src="@carouselImage.umbracoFile">
+                            <img class="center-block" src="@carouselImage.umbracoFile" alt="Carousel Image">
                         </div>
                     } else {
                         <div class="item">
-                            <img class="center-block" src="@carouselImage.umbracoFile">
+                            <img class="center-block" src="@carouselImage.umbracoFile" alt="Carousel Image">
                         </div>
                     }
                 }
