@@ -196,5 +196,4 @@ FakesAssemblies/
 *.opt
 
 # Logs and temp work files and stuff.
-*/App_data/Logs/
-*/App_data/TEMP/
+*/App_data/
